@@ -1,0 +1,41 @@
+<h1>Demo#index</h1>
+<p>Find me in app/views/demo/index.html.erb</p>
+<p> Hello World </p>
+
+<%= 1 + 1 %>
+
+<% target = "world" %>
+
+<%= "Hello #{target}" %>
+
+
+<!-- Output to the console -->
+<% 3.times do 
+	puts "xxx"
+	end %>
+
+<!-- Output to the Html rendered page -->
+<% 3.times do %>
+	<%= "xxx" %>
+	<% end %>
+
+<br><br>
+<!-- The old boring html way -->
+<a href="/demo/hello">hello page 1</a><br>
+
+<!-- The Ruby way -->
+<%= link_to('Hello Page 2', {:controller => 'demo', :action => 'hello'}) %>
+
+<br>
+
+<!-- Add params into the url -->
+<%= link_to('Hello Page with ID', 
+	{:controller => 'demo', 
+	 :action => 'hello', 
+	 :id => 1,
+	 :name => 'Hartmann', 
+	 :page => '3'})
+%>
+
+
+

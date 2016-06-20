@@ -1,0 +1,30 @@
+<h1>Demo#hello</h1>
+<p> Hello World from index </p>
+
+<%= 1 + 1 %>
+
+<% target = "world" %>
+
+<%= "Hello #{target}" %>
+<br/>
+<% @array.each do |n| %>
+	<%= n %> <br />
+<% end %>
+
+<br><br>
+<!-- The old boring html way -->
+<a href="/demo/index">index page 1</a><br>
+
+<!-- The Ruby way -->
+<%= link_to('index Page 2', {:controller => 'demo', :action => 'index'}) %>
+
+<br><br>
+
+ID: <%= @id %> <br>
+ID: <%= params[:id] %> <br>
+Name: <%= @name %> <br>
+Page: <%= @page %> <br>
+Next Page: <%= @page + 1 %> <br>
+<hr>
+<%= params.inspect %>
+

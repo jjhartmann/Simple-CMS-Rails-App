@@ -1,9 +1,29 @@
 Rails.application.routes.draw do
 
+  get 'sections/index'
+
+  get 'sections/show'
+
+  get 'sections/new'
+
+  get 'sections/edit'
+
+  get 'sections/delete'
+
+  get 'pages/index'
+
+  get 'pages/show'
+
+  get 'pages/new'
+
+  get 'pages/edit'
+
+  get 'pages/delete'
+
   root "demo#index"
 
   # get 'demo/index'
-  match ':controller(/:action(/:id))', :via => :get   
+  match ':controller(/:action(/:id))', :via => [:get, :post ]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

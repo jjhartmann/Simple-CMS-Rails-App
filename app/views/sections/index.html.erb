@@ -1,2 +1,52 @@
-<h1>Sections#index</h1>
-<p>Find me in app/views/sections/index.html.erb</p>
+ <% if !flash[:notice] %>
+     <div class="notice">
+       <%=	 flash[:notice] %>
+     </div>
+ <% end %>
+
+ <!--
+   create_table "sections", force: :cascade do |t|
+    t.integer  "page_id",      limit: 4
+    t.string   "name",         limit: 255
+    t.integer  "position",     limit: 4
+    t.boolean  "visible",                    default: false
+    t.string   "content_type", limit: 255
+    t.text     "content",      limit: 65535
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+  end
+ -->
+
+ <div class="section index">
+   <h2>Section List</h2>
+
+   <%= link_to("Add New Section", {:action => 'new'}) %>
+   <table class="listing" summary="Page Listings">
+     <tr>
+       <td>&nbsp;</td>
+       <td>Name</td>
+       <td>Visible</td>
+       <td>Content Type</td>
+       <td>Content</td>
+       <td>Actions</td>
+     </tr>
+
+     <%  @sections.each do |section| %>
+     <tr>
+       <td><%=	 section.position %></td>
+       <td><%=	 section.name %></td>
+       <td class="center"><%=	 section.visible %></td>
+       <td class="center"><%=	 section.content_type %></td>
+       <td><%=	 section.content %></td>
+       <td class="actions">
+         <%= link_to("Show", {:action => 'show', :id => section.id}, :class => 'action show') %>
+         <%= link_to("Edit", {:action => 'edit', :id => section.id}, :class => 'action edit') %>
+         <%=  link_to("Delete", {:action => 'delete', :id => section.id}, :class => 'action delete') %>
+       </td>
+     </tr>
+     <%	 end %>
+
+   </table>
+
+
+ </div>

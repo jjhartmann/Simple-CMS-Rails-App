@@ -1,0 +1,52 @@
+<% if flash[:notice].blank? %>
+    <div class="notice">
+      <%= flash[:notice] %>
+    </div>
+<% end %>
+
+<!--
+  create_table "pages", force: :cascade do |t|
+    t.integer  "subject_id", limit: 4
+    t.string   "name",       limit: 255
+    t.string   "permalink",  limit: 255
+    t.integer  "position",   limit: 4
+    t.boolean  "visible",                default: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+  end
+-->
+
+
+<div class="Pages index">
+
+  <h2>Pages Index</h2>
+
+
+  <div class="pages new">
+    <%= link_to("Add new page", {:action => 'new'}, :class => 'action new') %>
+  </div>
+  <table class="listing" summary="Page List">
+    <tr class="header">
+      <td>&nbsp;</td>
+      <td>Name</td>
+      <td>Visible</td>
+      <td>Permalink</td>
+      <td>Actions</td>
+    </tr>
+    <% @pages.each do |page| %>
+    <tr>
+      <td><%= page.position %></td>
+      <td><%= page.name %></td>
+      <td class="center"><%= page.visible %></td>
+      <td class="center"><%= page.permalink %></td>
+      <td class="actions">
+        <%=  link_to("Show", {:action => 'show', :id => page.id}, :class => 'action show') %>
+        <%=	 link_to("Edit", {:action => 'edit', :id => page.id}, :class => 'action edit') %>
+        <%=	 link_to("Delete", {:action => 'delete', :id => page.id}, :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+
+
+</div>

@@ -1,8 +1,3 @@
- <% if !flash[:notice] %>
-     <div class="notice">
-       <%=	 flash[:notice] %>
-     </div>
- <% end %>
 
  <!--
    create_table "sections", force: :cascade do |t|
@@ -25,6 +20,7 @@
      <tr>
        <td>&nbsp;</td>
        <td>Name</td>
+       <td>Page Id</td>
        <td>Visible</td>
        <td>Content Type</td>
        <td>Content</td>
@@ -35,6 +31,7 @@
      <tr>
        <td><%=	 section.position %></td>
        <td><%=	 section.name %></td>
+       <td><%=	 section.page_id %></td>
        <td class="center"><%=	 section.visible %></td>
        <td class="center"><%=	 section.content_type %></td>
        <td><%=	 section.content %></td>

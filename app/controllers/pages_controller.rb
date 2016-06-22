@@ -1,4 +1,7 @@
 class PagesController < ApplicationController
+
+  layout 'admin'
+
   def index
     @pages = Page.sorted
   end
@@ -36,7 +39,7 @@ class PagesController < ApplicationController
 
     # Update page and save to db
     if @page.update_attributes(page_params)
-      flash[:notice] = "The @{page.name} page has updated successfully."
+      flash[:notice] = "The '#{@page.name}' page has updated successfully."
 
       # Redirct to the show page......
       redirect_to(:action => 'show', :id => @page.id)
@@ -61,7 +64,7 @@ class PagesController < ApplicationController
   # Private Methods/Vars
   private 
   def page_params 
-    params.require(:page).permit(:name, :permalink, :position, :visible)
+    params.require(:page).permit(:page_id, :name, :permalink, :position, :visible)
   end
   
 end

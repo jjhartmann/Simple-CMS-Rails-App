@@ -2,33 +2,14 @@
   <h2>Create New Section</h2>
 
   <%=	 form_for(:section, :url => {:action => 'create'}, :class => "section new") do |f| %>
-  <table summary="Create new sections.">
-    <tr>
-      <th>Name</th>
-      <td><%= f.text_field(:name) %></td>
-    </tr>
-    <tr>
-      <th>Position</th>
-      <td><%=	 f.number_field(:position) %></td>
-    </tr>
-    <tr>
-      <th>Visible</th>
-      <td><%=	 f.check_box(:visible) %></td>
-    </tr>
-    <tr>
-      <th>Content Type</th>
-      <td><%= f.text_field(:content_type) %></td>
-    </tr>
-    <tr>
-      <th>Content</th>
-      <td><%=	 f.text_area(:content) %></td>
-    </tr>
-  </table>
 
-  <div class="form-button">
-    <%= submit_tag("Create") %>
-  </div>
+      <%=	 render(:partial => 'form', :locals => {:f => f}) %>
 
-  <% end %>
+
+      <div class="form-button">
+        <%= submit_tag("Create") %>
+      </div>
+
+      <% end %>
 
 </div>

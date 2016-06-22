@@ -1,11 +1,6 @@
 <%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
 
 
-<% if !flash[:notice].blank? %>
-    <div class="notice">
-      <%=	 flash[:notice] %>
-    </div>
-<% end %>
 
 
 <div class="pages show">
@@ -15,6 +10,10 @@
     <tr>
       <th class="left">Name</th>
       <td><%=	 @section.name %></td>
+    </tr>
+    <tr>
+      <th class="left">Page Id</th>
+      <td><%=	 @section.page_id %></td>
     </tr>
     <tr>
       <th class="left">Position</th>

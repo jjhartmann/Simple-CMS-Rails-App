@@ -1,10 +1,5 @@
 <%= link_to("<< Back to List", {:controller => 'subjects', :action => 'index'}, :class => 'back-link') %>
 
-<% if !flash[:nnn].blank? %>
-    <div class="notice">
-      <%= flash[:nnn] %>
-    </div>
-<% end %>
 
 <div class="subjects show">
   <h2>Show Subject</h2>

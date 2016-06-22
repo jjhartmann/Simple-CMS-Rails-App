@@ -1,6 +1,6 @@
 class SubjectsController < ApplicationController
   
-  layout false
+  layout 'admin'
 
   def index
     @subjects = Subject.sorted
@@ -23,7 +23,7 @@ class SubjectsController < ApplicationController
       # if the the save succeds, redirect to the index action
 
       # Flash Hash: Send notice to next page
-      flash[:nnn] = "Subject created successfully."
+      flash[:notice] = "Subject created successfully."
 
       redirect_to(:action => 'index')
     else
@@ -46,7 +46,7 @@ class SubjectsController < ApplicationController
       # if the the update succeeds, redirect to the index action
 
       # Flash Hash: Send notice to next page
-      flash[:nnn] = "Subject updated successfully."
+      flash[:notice] = "Subject updated successfully."
 
       redirect_to(:action => 'show', :id => @subject.id)
     else
@@ -63,7 +63,7 @@ class SubjectsController < ApplicationController
     @subject = Subject.find(params[:id]).destroy
 
     # Flash Hash: Send notice to next page
-    flash[:nnn] = "Subject #{@subject.name} deleted successfully."
+    flash[:notice] = "Subject #{@subject.name} deleted successfully."
 
     redirect_to({:action => 'index'})
   end

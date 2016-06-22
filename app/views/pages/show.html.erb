@@ -1,11 +1,5 @@
 <%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
 
-<% if flash[:notice].blank? %>
-    <div class="notice">
-      <%=	 flash[:notice] %>
-    </div>
-<% end %>
-
 <div class="pages show">
   <h2>Create New page</h2>
 
@@ -13,6 +7,14 @@
         <tr>
           <th>Name</th>
           <td><%=	 @page.name %></td>
+        </tr>
+        <tr>
+          <th>Subject Id</th>
+          <td><%=	 @page.subject_id %></td>
+        </tr>
+        <tr>
+          <th>Section Size</th>
+          <td><%=	 @page.sections.size %></td>
         </tr>
         <tr>
           <th>Position</th>

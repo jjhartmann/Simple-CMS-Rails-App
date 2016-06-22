@@ -28,5 +28,10 @@ class DemoController < ApplicationController
 
   	def lynda
   		redirect_to("http://www.jjhartmann.org")
-  	end
+		end
+
+
+		def text_helpers
+
+		end
 end
